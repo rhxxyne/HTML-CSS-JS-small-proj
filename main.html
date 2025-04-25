@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="mainstyle.css">
+        <title>will u be my valentine?</title>
+    </head>
+    <body>
+        <div class="container">
+            <img src="image/pic1.jpg" alt="our pic">
+            <div class="content">
+                <h1>password</h1>
+                <hr />
+                <form id="passwordForm" action="content.html" method="get" onsubmit="return validatePassword()">
+                    <input type="password" id="password" name="password" class="password"><br>
+                    <div class="buttons">
+                        <button type="button" onclick="addToPassword('1')" class="button1">1</button>
+                        <button type="button" onclick="addToPassword('2')" class="button1">2</button>
+                        <button type="button" onclick="addToPassword('3')" class="button1">3</button>
+                        <button type="button" onclick="addToPassword('4')" class="button1">4</button>
+                        <button type="button" onclick="addToPassword('5')" class="button1">5</button>
+                        <button type="button" onclick="addToPassword('6')" class="button1">6</button>
+                        <button type="button" onclick="addToPassword('7')" class="button1">7</button>
+                        <button type="button" onclick="addToPassword('8')">8</button>
+                        <button type="button" onclick="addToPassword('9')" class="button1">9</button>
+                        <button type="button" onclick="addToPassword('0')" class="button1">0</button>
+                        <button type="button" onclick="clearPassword()" class="clear">Clear</button>
+                    </div>
+                    <input type="submit" value="Submit" class="submit">
+                </form>
+                <p id="error-message" style="color: red; display: none;">Incorrect password. Please try again.</p>
+                <p>clue: the day I said YES.</p>
+            </div>
+        </div>
+        <script>
+            function addToPassword(value) {
+                var passwordField = document.getElementById('password');
+                passwordField.value += value;
+            }
+
+            function clearPassword() {
+                var passwordField = document.getElementById('password');
+                passwordField.value = '';
+            }
+
+            function validatePassword() {
+                var passwordField = document.getElementById('password');
+                var errorMessage = document.getElementById('error-message');
+                var correctPassword = '051924'; // Replace with your specific password
+
+                if (passwordField.value === correctPassword) {
+                    return true; // Allow form submission
+                } else {
+                    errorMessage.style.display = 'block';
+                    return false; // Prevent form submission
+                }
+            }
+        </script>
+    </body>
+</html>
